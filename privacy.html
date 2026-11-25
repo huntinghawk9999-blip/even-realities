@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cyber HUD KR – 개인정보처리방침 / Privacy Policy</title>
+  <style>
+    body { max-width: 760px; margin: 40px auto; padding: 0 20px; font: 16px/1.65 -apple-system, system-ui, "Malgun Gothic", sans-serif; color: #222; }
+    h1 { font-size: 26px; } h2 { font-size: 19px; margin-top: 32px; } h3 { font-size: 16px; }
+    code { background: #f2f2f2; padding: 1px 4px; }
+    hr { margin: 48px 0; border: 0; border-top: 1px solid #ddd; }
+  </style>
+</head>
+<body>
+  <h1>Cyber HUD KR – 개인정보처리방침</h1>
+  <p><em>최종 수정: 2026년 11월 25일</em></p>
+
+  <p>Cyber HUD KR(이하 "앱")은 Even Realities G2 글래스에 주변 지도, 시각, 속도·방향, 목적지 안내를 보여 주는 앱입니다.
+  이 방침은 앱이 어떤 정보를 쓰고 어디로 보내는지 설명합니다.</p>
+
+  <h2>요약</h2>
+  <ul>
+    <li>앱에는 개발자가 운영하는 서버도, 회원 가입도 없습니다. 개발자는 사용자의 어떤 정보도 받거나 저장하지 않습니다.</li>
+    <li>위치는 폰에서 처리되며, 지도·도로명·기온을 받기 위해 아래 공용 서비스로만 보냅니다.</li>
+    <li>선택 기능 "내 PC로 네이버 쓰기"를 켜면, 위치와 음성은 <strong>사용자 본인의 PC</strong>로 가고, 그 PC가 사용자 본인의 키로 네이버·Google에 요청합니다.</li>
+    <li>분석·광고·추적 기능은 없습니다.</li>
+  </ul>
+
+  <h2>앱이 요청하는 권한</h2>
+  <h3>위치 (location)</h3>
+  <p>앱이 실행 중일 때 폰의 GPS 위치(위도·경도·정확도·고도·속도·방향)를 읽어 미니맵, 도로명, 속도·방향·고도, 목적지까지 거리와 길안내에 씁니다.
+  위치는 폰의 메모리에서만 쓰고 저장하지 않습니다(사용자가 정한 목적지는 아래 "폰에 저장되는 정보" 참고).</p>
+
+  <h3>글래스 마이크 (g2-microphone)</h3>
+  <p>사용자가 글래스를 길게 누르고 있는 동안(최대 10초) 또는 메뉴의 "음성으로 목적지"를 고른 동안(5초)에만 소리를 듣습니다.
+  들은 소리는 <strong>사용자 본인의 PC 중계 서버</strong>로 보내지고, 그 PC가 사용자 본인의 Google Gemini API 키로 받아쓰기를 요청한 뒤 목적지 이름만 돌려받습니다.
+  소리는 저장하지 않습니다. Google Gemini 무료 사용분의 경우 Google이 입력을 서비스 개선에 쓸 수 있습니다:
+  <a href="https://ai.google.dev/gemini-api/terms">Gemini API 이용약관</a>.</p>
+
+  <h3>네트워크 (network)</h3>
+  <p>앱은 아래 서비스에만, 필요한 최소한의 정보로 연결합니다.</p>
+  <ul>
+    <li><strong>Overpass API</strong> (<code>overpass-api.de</code>, <code>overpass.kumi.systems</code>, <code>maps.mail.ru</code>):
+      내 위치 주변 약 1.3km 범위를 보내 OpenStreetMap 도로·물·공원 자료를 받음. 약 350m 움직일 때 한 번 정도.</li>
+    <li><strong>Nominatim</strong> (<code>nominatim.openstreetmap.org</code>): 좌표를 보내 도로명·동 이름을 받음(35m·12초마다 최대 한 번),
+      목적지를 검색할 때 입력한 글자를 보냄.</li>
+    <li><strong>Open-Meteo</strong> (<code>api.open-meteo.com</code>): 약 100m 단위로 뭉갠 좌표를 보내 현재 기온을 받음.
+      <a href="https://open-meteo.com/en/terms">Open-Meteo 약관</a>.</li>
+    <li><strong>사용자 본인 PC의 중계 서버</strong> (<code>http://100.86.86.86:8790</code>, 선택 기능을 켰을 때만):
+      사용자가 직접 Tailscale로 연결한 본인 PC입니다. 좌표·검색어·음성을 받아 사용자 본인의 키로 네이버 클라우드(도로명, 장소 검색, 자동차 길찾기)와
+      Google Gemini(음성 받아쓰기)에 요청합니다. 이 PC와 키는 사용자가 관리하며 개발자는 접근할 수 없습니다.
+      앱은 좌표를 보내기 전에 상대가 이 앱의 중계 서버인지 먼저 확인합니다.</li>
+  </ul>
+  <p>OpenStreetMap 서비스는 <a href="https://osmfoundation.org/wiki/Privacy_Policy">OpenStreetMap 재단 개인정보처리방침</a>을 따릅니다.
+  모든 웹 요청처럼 각 서비스에 IP 주소가 보입니다. 개발자는 이 요청들을 볼 수 없습니다.</p>
+
+  <h2>폰에 저장되는 정보</h2>
+  <p>설정(언어, 단위, 지도 방향·범위·갱신 간격, 시연 모드, 조준점, 내 PC 사용 여부)과 마지막으로 정한 목적지(이름·좌표)를 앱의 저장 공간에 둡니다.
+  목적지는 "지우기" 버튼이나 글래스 메뉴로 언제든 지울 수 있고, 앱을 지우면 모두 지워집니다. 네이버·Gemini 키는 폰에 저장하지 않고 사용자 PC에만 저장됩니다.</p>
+
+  <h2>글래스 정보</h2>
+  <p>글래스 배터리와 연결 상태를 읽어 표시합니다. 카메라와 사진첩은 쓰지 않습니다.</p>
+
+  <h2>어린이</h2>
+  <p>어린이를 대상으로 하지 않으며, 누구의 개인정보도 수집하지 않습니다.</p>
+
+  <h2>변경</h2>
+  <p>방침이 바뀌면 이 주소에 새 날짜와 함께 올립니다.</p>
+
+  <h2>문의</h2>
+  <p>이 저장소의 Issues: <a href="https://github.com/huntinghawk9999-blip/even-realities/issues">github.com/huntinghawk9999-blip/even-realities/issues</a></p>
+
+  <hr>
+
+  <h1>Cyber HUD KR – Privacy Policy</h1>
+  <p><em>Last updated: 25 November 2026</em></p>
+  <p>Cyber HUD KR ("the app") shows a heads-up display on Even Realities G2 glasses: a map of your surroundings, time, speed and heading, and destination guidance.</p>
+  <h2>Summary</h2>
+  <ul>
+    <li>No developer-operated server, no accounts. The developer does not collect, receive or store any of your data.</li>
+    <li>Your location is processed on your phone and sent only to the public services listed below to fetch map data, street names and temperature.</li>
+    <li>If you enable the optional "Use my PC" feature, your location and voice go to <strong>your own PC</strong>, which calls NAVER and Google with <strong>your own keys</strong>.</li>
+    <li>No analytics, advertising or tracking.</li>
+  </ul>
+  <h2>Permissions</h2>
+  <p><strong>Location</strong>: GPS position while the app runs, used for the minimap, street name, speed/heading/altitude, distance and route guidance. Kept in memory only.</p>
+  <p><strong>Glasses microphone</strong>: only while you hold the touchpad (up to 10 s) or choose "Voice destination" in the menu (5 s). The audio is sent to your own PC relay, which asks Google Gemini with your own API key to transcribe it and returns the place name. Audio is not stored. On the Gemini free tier, Google may use inputs to improve its services: <a href="https://ai.google.dev/gemini-api/terms">Gemini API terms</a>.</p>
+  <p><strong>Network</strong>: Overpass API (<code>overpass-api.de</code>, <code>overpass.kumi.systems</code>, <code>maps.mail.ru</code>) for roads around you;
+  Nominatim (<code>nominatim.openstreetmap.org</code>) for street names and destination search; Open-Meteo (<code>api.open-meteo.com</code>) for temperature with coordinates rounded to about 100 m;
+  and, only if you enable it, your own PC relay at <code>http://100.86.86.86:8790</code> reached through your own Tailscale network, which uses your own NAVER Cloud keys (street names, place search, car directions) and your own Gemini key (voice). The developer has no access to that PC or those keys. The app verifies the relay before sending any coordinates.</p>
+  <h2>Data stored on your phone</h2>
+  <p>Settings and the last destination you set (name and coordinates). Clear the destination any time; everything is removed when you uninstall. NAVER and Gemini keys are stored only on your PC, never on the phone.</p>
+  <h2>Glasses data</h2>
+  <p>Glasses battery level and connection state are read for display. The camera and photo album are not used.</p>
+  <h2>Contact</h2>
+  <p>Issues of this repository: <a href="https://github.com/huntinghawk9999-blip/even-realities/issues">github.com/huntinghawk9999-blip/even-realities/issues</a></p>
+</body>
+</html>
